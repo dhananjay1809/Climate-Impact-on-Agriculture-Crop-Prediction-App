@@ -1,5 +1,7 @@
 🌾 Climate Impact on Agriculture & Crop Prediction App
 
+![App Screenshot](images/image2.0.png)
+
 ## Project Overview
 Agriculture is highly sensitive to climate conditions such as rainfall, temperature, and soil quality.  
 This project leverages **Machine Learning** and **Streamlit** to build an interactive web app that:
