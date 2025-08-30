@@ -15,7 +15,9 @@ def load_data():
 
 df = load_data()
 
-st.title("🌾 Climate-Aware Agriculture Prediction App")
+st.title("🌾 Climate Impact on Agriculture & Crop Prediction App")
+st.image(r"C:\Users\ladhi\OneDrive\Desktop\climate_agri_app\image2.0.png")
+
 st.write("""
 This app can:
 1. Predict the **most suitable crop** based on climate & soil data.
