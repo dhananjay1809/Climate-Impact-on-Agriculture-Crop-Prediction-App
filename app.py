@@ -5,12 +5,12 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression, LinearRegression
 import matplotlib.pyplot as plt
 
-# ---------------------------
+
 # 1. Load Data
-# ---------------------------
+
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\ladhi\OneDrive\Desktop\sample_climate_agri.csv")  # updated dataset without co2_ppm
+    df = pd.read_csv(r"C:\Users\ladhi\OneDrive\Desktop\sample_climate_agri.csv")  
     return df
 
 df = load_data()
@@ -25,9 +25,9 @@ This app can:
 2. Estimate the **expected yield (tons/hectare)** for given conditions.
 """)
 
-# ---------------------------
+
 # 2. Preprocessing for Crop Classification
-# ---------------------------
+
 X_crop = df.drop(["crop", "state", "yield_t_ha"], axis=1)
 y_crop = df["crop"]
 
@@ -41,9 +41,9 @@ Xc_train, Xc_test, yc_train, yc_test = train_test_split(
 crop_model = LogisticRegression(max_iter=500)
 crop_model.fit(Xc_train, yc_train)
 
-# ---------------------------
+
 # 3. Preprocessing for Yield Regression
-# ---------------------------
+
 X_yield = df.drop(["yield_t_ha", "crop", "state"], axis=1)
 y_yield = df["yield_t_ha"]
 
@@ -54,9 +54,9 @@ Xy_train, Xy_test, yy_train, yy_test = train_test_split(
 yield_model = LinearRegression()
 yield_model.fit(Xy_train, yy_train)
 
-# ---------------------------
+
 # 4. User Input
-# ---------------------------
+
 st.subheader("Enter Climate & Soil Parameters:")
 
 inputs = {}
@@ -68,9 +68,9 @@ for col in X_crop.columns:
 
 input_df = pd.DataFrame([inputs])
 
-# ---------------------------
+
 # 5. Prediction + Histograms
-# ---------------------------
+
 if st.button("Predict"):
     # Crop prediction
     crop_pred = crop_model.predict(input_df)[0]
@@ -82,12 +82,12 @@ if st.button("Predict"):
     st.success(f"🌱 Recommended Crop: **{crop_name}**")
     st.info(f"📊 Expected Yield: **{yield_pred:.2f} tons/hectare**")
 
-     # ---------------------------
+
     # 6. Histograms
-    # ---------------------------
+
     st.subheader("📊 Data Distribution (Histograms)")
 
-    # detect numeric columns robustly
+
     numeric_cols = []
     for col in df.columns:
         try:
@@ -101,7 +101,7 @@ if st.button("Predict"):
 
     for col in numeric_cols:
         if col in ["year", "state", "crop"]:
-            continue  
+            continue
 
         fig, ax = plt.subplots()
         ax.hist(df[col].dropna(), bins=20, color="lightgrey", edgecolor="black")
@@ -119,5 +119,4 @@ if st.button("Predict"):
         ax.set_ylabel("Frequency")
         ax.legend()
 
-        st.pyplot(fig)   # show
-        plt.close(fig)   # ✅ close so it doesn’t render twice
+        st.pyplot(fig)
