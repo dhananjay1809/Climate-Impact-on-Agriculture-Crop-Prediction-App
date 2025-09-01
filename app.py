@@ -17,7 +17,7 @@ def load_data():
 df = load_data()
 
 st.title("🌾 Climate Impact on Agriculture & Crop Prediction App")
-st.image(r"C:\Users\ladhi\OneDrive\Desktop\climate_agri_app\images\image2.0.png")
+st.image("images/image2.0.png")
 
 
 st.write("""
