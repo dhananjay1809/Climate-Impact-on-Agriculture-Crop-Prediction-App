@@ -17,11 +17,11 @@ By combining climate data with ML, this app supports **farmers, researchers, and
 ## Features
 - 📊 **Crop Prediction** using Logistic Regression.
 - 🌱 **Yield Estimation** using Linear Regression.
-- 📈 **Visual Analytics**:
+-  **Visual Analytics**:
   - Histograms for continuous features (rainfall, temperature, yield).
   - Bar charts for discrete features (year, crop, state).
-- 🖥 **User-Friendly Interface** built with Streamlit.
-- 🌍 **Sustainability Focus**: Encourages data-driven farming practices.
+-  **User-Friendly Interface** built with Streamlit.
+-  **Sustainability Focus**: Encourages data-driven farming practices.
 
 ---
 
