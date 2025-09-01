@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\ladhi\OneDrive\Desktop\sample_climate_agri.csv")  
+    df = pd.read_csv("sample_climate_agri.csv")
+ 
     return df
 
 df = load_data()
